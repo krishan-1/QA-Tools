@@ -11,7 +11,7 @@
 * sqlite3 - ~> 1.4
 * Curl or Postman for testing manually
 
-#Production Prerequisites
+# Production Prerequisites
 * PostgreSQL
 * NGINX
 * Passenger
