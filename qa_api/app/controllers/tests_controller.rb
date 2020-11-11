@@ -46,6 +46,7 @@ class TestsController < ApplicationController
     @test.destroy
   end
 
+  # TODO: convert the private methods into there own class to conform to Rubocop's max number of line per class
   private
 
   # pulls the branch from github and run jest
@@ -64,7 +65,7 @@ class TestsController < ApplicationController
     if log_type == 'complete'
       File.read("#{Rails.root}/experience-engine/front/results.json")
     else
-      convert_and_minify(File.read("#{Rails.root}/experience-engine/front/test/jest/coverage/coverage-summary.json"))
+      convert_json(File.read("#{Rails.root}/experience-engine/front/test/jest/coverage/coverage-summary.json"))
     end
   end
 
@@ -152,7 +153,9 @@ class TestsController < ApplicationController
     params.require(:test).permit(:name, :json_complete, :json_summary, :slug)
   end
 
-  def convert_and_minify(json_file)
+  # Converts the json to a more smaller size and makes it easier for the receiving program to use it.
+  # TODO: split this into smaller methods to conform with Rubocop's max number of line per method
+  def convert_json(json_file)
     require 'json'
     json_data = JSON.parse(json_file)
     locations = { 'total' => json_data['total'] }
