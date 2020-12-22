@@ -1,4 +1,4 @@
-const test = require('./index.js').test;
+const test = require('./index.js');
 const video = require('wdio-video-reporter');
 exports.config = {
     //
@@ -109,7 +109,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver', [test, {
-        notifyOnPass: true,
+        notifyOnPass: false,
         webhookURL: 'https://sourcedigital.webhook.office.com/webhookb2/7230fb90-4316-45cf-b9a2-66767c6ba463@d47cc102-0ff8-46c5-a53c-b45199779f83/IncomingWebhook/ee861eff5f074b45aef2a6b20124e44e/62174a4f-d17c-4487-b98a-db46b0bba3f6'
     }]],
     

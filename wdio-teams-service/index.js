@@ -71,11 +71,19 @@ class MSteamsService {
             const errorBlock = await createErrorBlock(error.message.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, ''))
             await base.attachments[0].content.body.push(errorBlock)
         }
-        await axios({
-            method: 'post',
-            url: this.webhookURL,
-            data: base
-        })
+        if(hasError === undefined && this.notifyOnPass){
+            await axios({
+                method: 'post',
+                url: this.webhookURL,
+                data: base
+            })
+        } else if(hasError !== undefined){
+            await axios({
+                method: 'post',
+                url: this.webhookURL,
+                data: base
+            })
+        }
     }
 
 
@@ -154,4 +162,4 @@ function createErrorBlock(errorMessage){
     return block
 }
 
-module.exports.test = MSteamsService
+module.exports = MSteamsService
