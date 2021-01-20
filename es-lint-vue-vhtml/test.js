@@ -8,144 +8,177 @@ ruleTester.run('index', rule, {
     valid: [
         {
             filename: 'test.vue',
-            code: '<template>\n' +
-                  '  <div v-html="$sanitize(cleanMessage)"></div>\n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    cleanMessage() {\n' +
-                  '      return this.$sanitize(this.message)\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>'
+            code: 
+`<template>
+  <div v-html="$sanitize(cleanMessage)"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    cleanMessage() {
+      return this.$sanitize(this.message)
+    }
+  }
+ }
+</script>`
         },
         {
             filename: 'test.vue',
-            code: '<template>\n' +
-                  '  <div v-html="$sanitize(dirtyMessage)"></div>\n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    dirtyMessage() {\n' +
-                  '      return this.message\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>'
+            code: 
+`<template>
+  <div v-html="$sanitize(dirtyMessage)"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    dirtyMessage() {
+      return this.message
+    }
+  }
+ }
+</script>`
         },
         {
             filename: 'test.vue',
-            code: '<template>\n' +
-                  '  <div v-html="$sanitize(dirtyMessage)"></div>\n' +
-                  '  <div v-html="cleanMessage"></div>/n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    dirtyMessage() {\n' +
-                  '      return this.message\n' +
-                  '    },\n' +
-                  '    cleanMessage() {\n' +
-                  '      return this.$sanitize(this.message)\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>'
+            code: 
+`<template>
+  <div v-html="$sanitize(dirtyMessage)"></div>
+  <div v-html="cleanMessage"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    dirtyMessage() {
+      return this.message
+    },
+    cleanMessage() {
+      return this.$sanitize(this.message)
+    }
+  }
+ }
+</script>`
         },
         {
             filename: 'test.vue',
-            code: '<template>\n' +
-                  '  <div v-html="$sanitize(message)"></div>\n' +
-                  '  <div v-html="cleanMessage"></div>/n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    dirtyMessage() {\n' +
-                  '      return this.message\n' +
-                  '    },\n' +
-                  '    cleanMessage() {\n' +
-                  '      return this.$sanitize(this.message)\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>',
+            code: 
+`<template>
+  <div v-html="$sanitize(message)"></div>
+  <div v-html="cleanMessage"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    dirtyMessage() {
+      return this.message
+    },
+    cleanMessage() {
+      return this.$sanitize(this.message)
+    }
+  }
+ }
+</script>`,
+        }, {
+            filename: 'test.vue',
+            code: '',
+        }, {
+            filename: 'test.vue',
+            code: '<template></template>',
+        }, {
+            filename: 'test.vue',
+            code: '<template><div></div></template>',
         }
     ],
     invalid: [
         {
             filename: 'test.vue',
-            code: '<template>\n' +
-                  '  <div v-html="dirtyMessage"></div>\n' +
-                  '  <div v-html="cleanMessage"></div>/n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    dirtyMessage() {\n' +
-                  '      return this.message\n' +
-                  '    },\n' +
-                  '    cleanMessage() {\n' +
-                  '      return this.$sanitize(this.message)\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>',
-            output: '<template>\n' +
-                  '  <div v-html="dirtyMessage"></div>\n' +
-                  '  <div v-html="cleanMessage"></div>/n' +
-                  '</template>\n' +
-                  '\n' +
-                  '<script>\n' +
-                  ' export default {\n' +
-                  '  data () {\n' +
-                  '    return {\n' +
-                  '      message:`\n        My <strong>milkshake</strong> brings all the boys to the yard<br/>\n        And <i>they\'re</i> like, it\'s better than yours\n      `\n' +
-                  '    }\n' +
-                  '  },\n' +
-                  '  computed: {\n' +
-                  '    dirtyMessage() {\n' +
-                  '      return this.message\n' +
-                  '    },\n' +
-                  '    cleanMessage() {\n' +
-                  '      return this.$sanitize(this.message)\n' +
-                  '    }\n' +
-                  '  }\n' +
-                  ' }\n' +
-                  '</script>',
+            code: 
+`<template>
+  <div v-html="dirtyMessage"></div>
+  <div v-html="cleanMessage"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    dirtyMessage() {
+      return this.message
+    },
+    cleanMessage() {
+      return this.$sanitize(this.message)
+    }
+  }
+ }
+</script>`,
+            output: 
+`<template>
+  <div v-html="dirtyMessage"></div>
+  <div v-html="cleanMessage"></div>
+</template>
+
+<script>
+ export default {
+  data () {
+    return {
+      message:\`
+        My <strong>milkshake</strong> brings all the boys to the yard<br/>
+        And <i>they're</i> like, it's better than yours
+      \`
+    }
+  },
+  computed: {
+    dirtyMessage() {
+      return this.message
+    },
+    cleanMessage() {
+      return this.$sanitize(this.message)
+    }
+  }
+ }
+</script>`,
             errors: [
                 {
                     message: "'v-html' directive can lead to XSS attack! You must sanitize!!",
