@@ -1,0 +1,16 @@
+{
+  "name": "es-lint-vue-vhtml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^7.18.0",
+    "vue-eslint-parser": "^7.3.0"
+  }
+}
