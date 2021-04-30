@@ -1,0 +1,99 @@
+name: E2E Test For Stg
+
+on:
+  workflow_dispatch:
+    inputs:
+      Distribution:
+        description: "What is the distribution slug?"
+        required: true
+      Activation:
+        description: "What is the activation timeline text?"
+        required: true
+      StartTime:
+        description: "What time in seconds does the activation first appear?"
+        required: true
+
+jobs:
+  Test-On-Prod:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 1
+      matrix:
+        OS: [ "Windows" ]
+        OS_Version: [ "10" ]
+        OS_Browser: [ "Chrome", "Firefox", "Edge" ]
+        Type: ["desktop"]
+        include:
+          - OS: "OS X"
+            OS_Version: "Big Sur"
+            OS_Browser: "Chrome"
+            Type: "desktop"
+
+          - OS: "OS X"
+            OS_Version: "Big Sur"
+            OS_Browser: "Firefox"
+            Type: "desktop"
+
+          - OS: "OS X"
+            OS_Version: "Big Sur"
+            OS_Browser: "Edge"
+            Type: "desktop"
+
+          - OS: "OS X"
+            OS_Version: "Big Sur"
+            OS_Browser: "Safari"
+            Type: "desktop"
+
+          - OS: "iPhone"
+            OS_Version: "12 Pro Max"
+            OS_Browser: "Safari"
+            Type: "mobile"
+
+          - OS: "iPhone"
+            OS_Version: "8 Plus"
+            OS_Browser: "Safari"
+            Type: "mobile"
+
+          - OS: "iPhone"
+            OS_Version: "XS"
+            OS_Browser: "Safari"
+            Type: "mobile"
+
+          - OS: "Samsung"
+            OS_Version: "Galaxy S20"
+            OS_Browser: "Chrome"
+            Type: "mobile"
+
+          - OS: "Samsung"
+            OS_Version: "Galaxy S20 Ultra"
+            OS_Browser: "Chrome"
+            Type: "mobile"
+
+          - OS: "Samsung"
+            OS_Version: "Galaxy S8 Plus"
+            OS_Browser: "Chrome"
+            Type: "mobile"
+
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt' # See 'Supported distributions' for available options
+          java-version: '11'
+      - name: run test
+        env:
+          OS: ${{ matrix.OS }}
+          OS_Version: ${{ matrix.OS_Version }}
+          OS_Browser: ${{ matrix.OS_Browser }}
+          Type: ${{ matrix.Type }}
+          Distribution: ${{ github.event.inputs.Distribution }}
+          TimeLineText: ${{ github.event.inputs.Activation }}
+          StartTime: ${{ github.event.inputs.StartTime }}
+        run: |
+          cd ./EndToEndTest
+          ./gradlew teststg
