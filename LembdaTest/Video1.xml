@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="tests" thread-count="6">
+
+
+    <test name="motortrend_Chrome Test">
+        <parameter name="browser" value="Chrome" />
+        <parameter name="version" value="97.0" />
+        <parameter name="platform" value="Windows 11" />
+        <classes>
+            <class name="motortrend.VideoAd" />
+        </classes>
+    </test>
+    <test name="motortrend_Chrome Test1">
+        <parameter name="browser" value="Chrome" />
+        <parameter name="version" value="97.0" />
+        <parameter name="platform" value="Windows 10" />
+        <classes>
+            <class name="motortrend.VideoAd" />
+        </classes>
+    </test>
+
+</suite>
