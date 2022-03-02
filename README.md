@@ -37,3 +37,25 @@ Answer 1: Maven TestNG
 - SAM are clicked
 - VideoAd Distribution
 - Cross platform
+
+## Run 
+
+name: Lambdatest
+
+on: 
+  push: 
+    branches: [ feature/lembdatest ]
+
+jobs:
+  build:
+    runs-on: window-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Build with Ant
+        run: ant -noinput -buildfile build.xml
