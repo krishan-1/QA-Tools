@@ -33,5 +33,8 @@ jobs:
       - name: Step 3 - Have github action to build  maven project
         run: mvn -B package --file ./LembdaTest/pom.xml
         
+      - name: run dist
+        run: mvn clean test ./LembdaTest/distribution1.xml
+        
 
           
