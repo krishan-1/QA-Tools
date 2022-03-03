@@ -31,10 +31,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Step 3 - Have github action to build  maven project
-        run: mvn -B package --file ./LembdaTest/pom.xml
-        
-      - name: run dist
-        run: mvn clean deploy ./LembdaTest/distribution1.xml
+        run: cd LembdaTest && mvn -B package --file pom.xml && mvn clean deploy distribution1.xml
+
         
 
           
