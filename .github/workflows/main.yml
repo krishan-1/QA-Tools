@@ -34,7 +34,7 @@ jobs:
         run: cd LembdaTest && mvn -B package --file pom.xml 
         
       - name: mv install
-        run: mvn run install
+        run: cd LembdaTest && mvn run install
 
         
 
