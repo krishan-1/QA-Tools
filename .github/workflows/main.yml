@@ -33,8 +33,7 @@ jobs:
       - name: Step 3 - Have github action to build  maven project
         run: cd LembdaTest && mvn -B package --file pom.xml 
         
-      - name: mvn clean install
-        run: cd LembdaTest && mvn run clean install
+      
 
         
 
