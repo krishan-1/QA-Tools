@@ -32,6 +32,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Step 3 - Have github action to build  maven project
         run: cd LembdaTest && mvn -B package --file pom.xml 
+        
+      - name: mv install
+        run: mvn run install
 
         
 
