@@ -33,11 +33,5 @@ jobs:
       - name: Step 3 - Have github action to build  maven project
         run: mvn -B package --file ./LembdaTest/pom.xml
         
-      - name: Step 4 - List the current directory 
-        run: ls -a
-        
-      - name: Step 5 - What is the the target folder?
-        run: 
-          cd target 
-          ls -a
+
           
