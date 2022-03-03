@@ -34,7 +34,7 @@ jobs:
         run: mvn -B package --file ./LembdaTest/pom.xml
         
       - name: run dist
-        run: mvn clean test ./LembdaTest/distribution1.xml
+        run: mvn clean deploy ./LembdaTest/distribution1.xml
         
 
           
