@@ -33,6 +33,4 @@ jobs:
       - name: Step 3 - Have github action to build  maven project
         run: cd LambdaTest && mvn -B package --file pom.xml
         
-      - name: Step 4 - Run Maven command 
-        run: cd LambdaTest && mvn clean install
 	
