@@ -31,7 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Step 3 - Have github action to build  maven project
-        run: cd LambdaTest && mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml
         
       - name: Step 4 - Run Maven command 
-        run: cd LambdaTest && mvn clean install
+        run:  mvn clean install
