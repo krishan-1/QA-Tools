@@ -1,21 +1,55 @@
-# This is a basic workflow to help you get started with Actions
+# QA-Tools
+[README.md](https://github.com/Source-Digital/QA-Tools/files/8114286/README.md)
+
+# Lambda Test Automation
+
+This is Distribution Overlay Template automation, To check each and every SAM is clicked
+
+
+## Contributing
+
+Contributions are always welcome!
+
+See `lembdaTest` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  git commit -m lembdaTest
+```
+
+
+## FAQ
+
+#### Question 1 : Which Framework is used with the Lambdatest
+
+Answer 1: Maven TestNG 
+
+
+
+## Features
+
+- SAM are clicked
+- VideoAd Distribution
+- Cross platform
+
+## Run
 
 name: Lambdatest
 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ feature/lembdatest ]
   
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
