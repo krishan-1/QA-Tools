@@ -35,4 +35,3 @@ jobs:
         
       - name: Step 4 - Run Maven command 
         run: cd LambdaTest && mvn clean install
-	
