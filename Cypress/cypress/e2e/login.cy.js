@@ -1,14 +1,16 @@
-
-describe('Kurator',()=>{
-    it('Login',()=>{
-        cy.visit('https://admin-staging.sourcesync.io/#/login?redirect=%2F')
-        
-        cy.get('.q-btn__content').click()
-
-        cy.get('#username').type('sourcedev@gmail.com')
-
-        cy.get('#password').type('Source0ne')
-
-        cy.get('#kc-login').click()
+before(function(){
+    cy.fixture('kurator.json').then((kuratorData)=>{
+        this.kuratorData = kuratorData
+        cy.log("email"+this.kuratorData.email)
     })
 })
+
+it('login to kurator',function(){
+    cy.log("email"+this.kuratorData.email)
+    cy.login(this.kuratorData.email,this.kuratorData.password)
+})
+
+it('logout to kurator',()=>{
+    cy.logout()
+})
+
