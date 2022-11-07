@@ -1,3 +1,4 @@
+import 'cypress-file-upload'
 Cypress.Commands.addAll({
     
     login(email,password){ 
@@ -11,5 +12,13 @@ Cypress.Commands.addAll({
     logout(){
         cy.contains('Source Digital').click()
         cy.get('.q-menu > .q-list >  :nth-child(3)').click()
+    },
+
+    navigateToTestOrg(){
+        cy.get('.q-header > .q-toolbar > .items-center > button').eq(1).click()
+        cy.contains('Switch Organization').click()
+        cy.contains('QA').click()
     }
 })
+
+  
