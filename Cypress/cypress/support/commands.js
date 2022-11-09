@@ -14,11 +14,13 @@ Cypress.Commands.addAll({
         cy.get('.q-menu > .q-list >  :nth-child(3)').click()
     },
 
-    navigateToTestOrg(){
+    navigateToTestOrg(orgName){
         cy.get('.q-header > .q-toolbar > .items-center > button').eq(1).click()
         cy.contains('Switch Organization').click()
-        cy.contains('QA').click()
+        cy.contains(orgName).click()
+        cy.wait(2000);
     }
 })
+
 
   
