@@ -36,12 +36,11 @@ Step 2: Generate lambdatest-config.json.
 ## In the generated lambdatest-config.json file, pass the below information.
 
 Fill required values in the section lambdatest_auth, browsers, and run_settings to run your tests.
+
 ```json
 {
 "lambdatest_auth": {
-
 "username": "username",
-
 "access_key": "access_key"
 },
 "browsers": [
@@ -122,6 +121,7 @@ Fill required values in the section lambdatest_auth, browsers, and run_settings 
 }
 }
 
+```
 # Now Run the following command to fetch and Install the Relative Dependancies
 
 > npm install
