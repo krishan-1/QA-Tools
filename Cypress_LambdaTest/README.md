@@ -36,7 +36,7 @@ Step 2: Generate lambdatest-config.json.
 ## In the generated lambdatest-config.json file, pass the below information.
 
 Fill required values in the section lambdatest_auth, browsers, and run_settings to run your tests.
-
+```json
 {
 "lambdatest_auth": {
 
