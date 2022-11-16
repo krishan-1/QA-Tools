@@ -39,7 +39,9 @@ Fill required values in the section lambdatest_auth, browsers, and run_settings 
 
 {
 "lambdatest_auth": {
+
 "username": "username",
+
 "access_key": "access_key"
 },
 "browsers": [
