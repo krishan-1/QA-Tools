@@ -139,3 +139,4 @@ Fill required values in the section lambdatest_auth, browsers, and run_settings 
 ## To Run Code on Lambda Automation test build, Run the below command-
 
 > lambdatest-cypress run
+
