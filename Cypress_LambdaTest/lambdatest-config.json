@@ -1,0 +1,51 @@
+{
+  "lambdatest_auth": {
+    "username": "yash.jainsourcedigital",
+    "access_key": "R8wSXoVE0MlpUPXrslGw0bZdothPDwvKsX1AVIfTMqISD5dFNX"
+  },
+  "browsers": [
+    {
+      "browser": "Chrome",
+      "platform": "macOS Monterey",
+      "versions": ["latest-1"]
+    },
+    {
+      "browser": "Safari",
+      "platform": "macOS Monterey",
+      "versions": ["latest-1"]
+    },
+    {
+      "browser": "Chrome",
+      "platform": "Windows 10",
+      "versions": ["latest-1"]
+    },
+    {
+      "browser": "Firefox",
+      "platform": "Windows 10",
+      "versions": ["latest-1"]
+    }
+  ],
+
+  "run_settings": {
+    "config_file": "cypress.config.js",
+    "reporter_config_file": "base_reporter_config.json",
+    "build_name": "New Kurator Login",
+    "parallels": 5,
+    "specs": "./cypress/e2e/e2e testing/Common/*.cy.js",
+    "ignore_files": "",
+    "feature_file_support": true,
+    "network": true,
+    "headless": true,
+    "sync": true,
+    "npm_dependencies": {
+      "npm-run-all": "4.1.2",
+      "typescript": "3.7.4",
+      "cypress-file-upload": "5.0.8"
+    },
+    "cypress_version": "10.0.0"
+  },
+  "tunnel_settings": {
+    "tunnel": false,
+    "tunnel_name": null
+  }
+}
