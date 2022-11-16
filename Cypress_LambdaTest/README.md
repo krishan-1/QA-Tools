@@ -77,6 +77,7 @@ Fill required values in the section lambdatest_auth, browsers, and run_settings 
 }
 }
 
+
 ## Find package.json file and update the below information.
 
 {
