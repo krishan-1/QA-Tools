@@ -56,10 +56,10 @@ Fill required values in the section lambdatest_auth, browsers, and run_settings 
 }
 ],
 "run_settings": {
-"config_file": "cypress.json",
+"config_file": "cypress.config.js",
 "build_name": "build-name",
 "parallels": 2,
-"specs": "./cypress/integration/lambdatest/\*.spec.js",
+"specs": "./cypress/e2e/e2e testing/Common/*.cy.js",
 "ignore_files": "",
 "feature_file_suppport": false,
 "network": false,
