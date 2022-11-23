@@ -19,7 +19,7 @@ jobs:
     # Runs a single command using the runners shell
 
       - name: Cupress run
-        uses: cypress-io/githubaction@v2
+        uses: cypress-io/github-action@v4
         with:
           build: npm run build
           start: npm start
