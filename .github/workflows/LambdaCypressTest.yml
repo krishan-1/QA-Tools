@@ -2,7 +2,7 @@ name: Cypress_LambdaTest Build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   push:
-    branches:[ feature/LambdaTest_Integration_with_Cypress ]
+    branches:[ feature/lembdatest ]
 
 jobs:
   cypress-run:
