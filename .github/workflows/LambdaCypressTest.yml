@@ -1,12 +1,14 @@
 name: Cypress_LambdaTest Build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
-  push:
-    branches:[ feature/lembdatest ]
+
+on: [push]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Cypress_LambdaTest
 
   # Steps represent a sequence of tasks that will be executed as part of the job
 
@@ -22,6 +24,5 @@ jobs:
           build: npm run build
           start: npm start
           run: lambdatest-cypress run
-          working-directory: ./Cypress_LambdaTest
 
     # Runs a single command using the runners shell    
