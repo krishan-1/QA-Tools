@@ -6,23 +6,27 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Cypress_LambdaTest
-
-  # Steps represent a sequence of tasks that will be executed as part of the job
-
     steps:
-      - name: CheckOut
-        uses: actions/checkout@v2
+# Steps represent a sequence of tasks that will be executed as part of the job
+     - name: CheckOut
+       uses: actions/checkout@v2
+     - name: Cupress run
+       uses: cypress-io/github-action@v4
+      
+       with:
+           project: ./Cypress_LambdaTest
+           build: npm run build
+           start: npm start
+           working-directory: e2e
+           run: lambdatest-cypress run
+           record: true
+       env:
+              CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       
 
-    # Runs a single command using the runners shell
+ 
 
-      - name: Cupress run
-        uses: cypress-io/github-action@v4
-        with:
-          build: npm run build
-          start: npm start
-          run: lambdatest-cypress run
 
-    # Runs a single command using the runners shell    
+    
+         
