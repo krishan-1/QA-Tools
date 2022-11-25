@@ -10,9 +10,10 @@ jobs:
 # Steps represent a sequence of tasks that will be executed as part of the job
      - name: CheckOut
        uses: actions/checkout@v2
+       
      - name: Cupress run
        uses: cypress-io/github-action@v4
-       timeout-minutes: 10
+       
        with:
            build: npm run build
            start: npm start
