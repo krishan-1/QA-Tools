@@ -14,7 +14,9 @@ jobs:
      - name: Cupress run
        uses: cypress-io/github-action@v4
        with:
-           install: npm install
+           install: | 
+            npm config set legacy-peer-deps true
+            npm install
            build: npm run build
            start: npm start
            working-directory: ./Cypress_LambdaTest
