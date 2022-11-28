@@ -12,12 +12,16 @@ jobs:
        uses: actions/checkout@v2
        
      - name: Cupress run
-       uses: cypress-io/github-action@v2
+       uses: cypress-io/github-action@v4
        with:
+           install: false
            command: lambdatest-cypress run
            build: npm run build
            start: npm start
-           working-directory: e2e
+           working-directory: ./Cypress_LambdaTest
+           spec: |
+              QA-Tools/Cypress_LambdaTest/
+              cypress/e2e/e2e testing/Common/*.cy.js
            record: true
        env:
               CYPRESS_RECORD_KEY: ${{ secrets.f6e78c45-1c38-45b2-b600-a9e54eb54c34 }}
