@@ -14,11 +14,11 @@ jobs:
      - name: Cupress run
        uses: cypress-io/github-action@v4
        with:
-           install: false
-           command: lambdatest-cypress run
+           install: npm install
            build: npm run build
            start: npm start
            working-directory: ./Cypress_LambdaTest
+           command: lambdatest-cypress run
            spec: |
               QA-Tools/Cypress_LambdaTest/
               cypress/e2e/e2e testing/Common/*.cy.js
