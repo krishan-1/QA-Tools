@@ -9,9 +9,9 @@ jobs:
        uses: actions/checkout@v2
      - uses: actions/setup-node@v2
        with:
-        working-directory: cd Cypress_LambdaTest
         node-version: 16
-     - run: npm install
+     - name: NPM with Cypress 
+       run: npm install
           
      - name: Cupress run
        uses: cypress-io/github-action@v4
