@@ -11,7 +11,8 @@ jobs:
        with:
         node-version: 16
      - name: NPM with Cypress 
-       run: npm install
+       run: npm init     
+     - run: npm install -d
           
      - name: Cupress run
        uses: cypress-io/github-action@v4
