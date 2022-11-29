@@ -1,45 +1,28 @@
 name: Cypress_LambdaTest Build
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
 on: [push]
-
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
 # Steps represent a sequence of tasks that will be executed as part of the job
-     - uses: actions/checkout@v2
+     - name: Checkout
+       uses: actions/checkout@v2
      - uses: actions/setup-node@v2
        with:
         node-version: 16
      - run: npm install
-     
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name: PUBLISHING Cypress CLI Version ${{ github.event.release.tag_name }}
-        run: |
-          npm ci
-          npm publish --access public
-          echo "CHECKING on NPM REPO, whether new version starts reflecting there or not:";
-          npm view lambdatest-cypress-cli versions --json
           
-      - name: Cupress run
-        uses: cypress-io/github-action@v4
-        with:
+     - name: Cupress run
+       uses: cypress-io/github-action@v4
+       with:
+           start: npm start 
            working-directory: ./Cypress_LambdaTest
            command: lambdatest-cypress run
            spec: |
               QA-Tools/Cypress_LambdaTest/
               cypress/e2e/e2e testing/Common/*.cy.js
            record: true
-        env:
+       env:
               CYPRESS_RECORD_KEY: ${{ secrets.f6e78c45-1c38-45b2-b600-a9e54eb54c34 }}
               GITHUB_TOKEN: ${{ secrets.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 }}
        
