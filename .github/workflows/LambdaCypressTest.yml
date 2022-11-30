@@ -9,20 +9,19 @@ jobs:
        uses: actions/checkout@v2
      - uses: actions/setup-node@v2
        with:
+        working-directory: cd Cypress_LambdaTest
         node-version: 16
-     - name: NPM with Cypress 
-       run: npm init     
-     - run: npm install -d
+     - name: NPM with Cypress
+       run : npm config set legacy-peer-deps true
+     - name: Install NPM
+       run: npm install
+     - name: Install LambdaCLI
+       run: npm install -g lambdatest-cypress-cli
           
      - name: Cupress run
        uses: cypress-io/github-action@v4
        with:
-           start: npm start 
-           working-directory: cd Cypress_LambdaTest
            command: lambdatest-cypress run
-           spec: |
-              QA-Tools/Cypress_LambdaTest/
-              cypress/e2e/e2e testing/Common/*.cy.js
            record: true
        env:
               CYPRESS_RECORD_KEY: ${{ secrets.f6e78c45-1c38-45b2-b600-a9e54eb54c34 }}
