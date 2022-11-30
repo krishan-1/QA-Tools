@@ -3,13 +3,15 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Cypress_LambdaTest
     steps:
 # Steps represent a sequence of tasks that will be executed as part of the job
      - name: Checkout
        uses: actions/checkout@v2
      - uses: actions/setup-node@v2
        with:
-        working-directory: cd Cypress_LambdaTest
         node-version: 16
      - name: NPM with Cypress
        run : npm config set legacy-peer-deps true
