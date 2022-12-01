@@ -38,3 +38,19 @@ jobs:
       env:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+  
+  TeamsSuccessNotification:
+    name: MSTeams success status Notification
+    needs: [cypress-run]
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Microsoft Teams Notification
+        uses: skitionek/notify-microsoft-teams@master
+        if: success()
+        with:
+          webhook_url: ${{ secrets.TEAMS_WEBHOOK }}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}      
