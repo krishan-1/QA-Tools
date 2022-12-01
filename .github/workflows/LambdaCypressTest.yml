@@ -8,6 +8,7 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    
     steps:
 # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout
@@ -21,9 +22,11 @@ jobs:
       run: |-
         cd Cypress_LambdaTest
         npm install
+    
     - name: Install LambdaCLI
       run: npm install -g lambdatest-cypress-cli  
     - name: Cypress run
+
       uses: cypress-io/github-action@v4
       with:
         command: lambdatest-cypress run
@@ -31,4 +34,4 @@ jobs:
         working-directory: Cypress_LambdaTest
       env:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
