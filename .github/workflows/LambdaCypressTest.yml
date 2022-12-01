@@ -1,30 +1,34 @@
 name: Cypress_LambdaTest Build
-on: [push]
+on: 
+  push:
+    branches:
+      - feature/lembda-test
+    paths:
+      - 'Cypress_LambdaTest/**'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Cypress_LambdaTest
     steps:
 # Steps represent a sequence of tasks that will be executed as part of the job
-     - name: Checkout
-       uses: actions/checkout@v2
-     - uses: actions/setup-node@v2
-       with:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
         node-version: 16
-     - name: NPM with Cypress
-       run : npm config set legacy-peer-deps true
-     - name: Install NPM
-       run: npm install
-     - name: Install LambdaCLI
-       run: npm install -g lambdatest-cypress-cli
-          
-     - name: Cupress run
-       uses: cypress-io/github-action@v4
-       with:
-           command: lambdatest-cypress run
-           record: true
-       env:
-              CYPRESS_RECORD_KEY: ${{ secrets.f6e78c45-1c38-45b2-b600-a9e54eb54c34 }}
-              GITHUB_TOKEN: ${{ secrets.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 }}         
+    - name: NPM with Cypress
+      run : npm config set legacy-peer-deps true
+    - name: NPM install
+      run: |-
+        cd Cypress_LambdaTest
+        npm install
+    - name: Install LambdaCLI
+      run: npm install -g lambdatest-cypress-cli  
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        command: lambdatest-cypress run
+        record: true
+        working-directory: Cypress_LambdaTest
+      env:
+        CYPRESS_RECORD_KEY: ${{ secrets.f6e78c45-1c38-45b2-b600-a9e54eb54c34 }}
+        GITHUB_TOKEN: ${{ secrets.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 }}    
