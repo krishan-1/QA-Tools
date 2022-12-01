@@ -5,6 +5,8 @@ on:
       - feature/lembda-test
     paths:
       - 'Cypress_LambdaTest/**'
+  workflow_dispatch:
+    
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
