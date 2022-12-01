@@ -2,13 +2,14 @@ name: Cypress_LambdaTest Build
 on: 
   push:
     branches:
-      - feature/lembda-test
+    - feature/lembda-test
     paths:
-      - 'Cypress_LambdaTest/**'
+    - 'Cypress_LambdaTest/**'
   workflow_dispatch:
     
 jobs:
   cypress-run:
+    name: Cypress run
     runs-on: ubuntu-latest
     
     steps:
