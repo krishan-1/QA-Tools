@@ -1,4 +1,4 @@
-import { createFolder } from "../utils/Common/createNewFolder";
+import { createFolder } from "../../utils/Common/createNewFolder";
 describe("Assets E2E Testing", function () {
   const p = "coffee.jpg";
   const path = require("path");
