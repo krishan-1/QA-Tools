@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^10.11.0",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "cypress-localstorage-commands": "^2.2.1",
+    "cypress-real-events": "^1.7.4"
   }
 }
