@@ -7,7 +7,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     watchForFileChanges: false,
-    defaultCommandTimeout: 12000,
-    chromeWebSecurity: false,
+    viewportWidth: 1920,
+    viewportHeight: 1080,
   },
 });

@@ -35,6 +35,7 @@
     "cypress-real-events": "^1.7.4"
   },
   "devDependencies": {
+    "cypress-browser-permissions": "^1.1.0",
     "@cypress/eslint-plugin-dev": "5.0.0",
     "colon-names": "1.0.0",
     "eslint": "7.0.0",

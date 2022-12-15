@@ -6,21 +6,6 @@
   "browsers": [
     {
       "browser": "Chrome",
-      "platform": "macOS Monterey",
-      "versions": ["latest-1"]
-    },
-    {
-      "browser": "Firefox",
-      "platform": "macOS Monterey",
-      "versions": ["latest-1"]
-    },
-    {
-      "browser": "Chrome",
-      "platform": "Windows 10",
-      "versions": ["latest-1"]
-    },
-    {
-      "browser": "Firefox",
       "platform": "Windows 10",
       "versions": ["latest-1"]
     }
@@ -35,12 +20,14 @@
     "ignore_files": "",
     "feature_file_support": true,
     "network": true,
-    "headless": true,
+    "headless": false,
     "sync": true,
     "npm_dependencies": {
       "npm-run-all": "4.1.2",
       "typescript": "3.7.4",
-      "cypress-file-upload": "5.0.8"
+      "cypress-file-upload": "5.0.8",
+      "cypress-real-events": "^1.7.4",
+      "cypress-browser-permissions": "^1.1.0"
     },
     "cypress_version": "10.0.0"
   },
