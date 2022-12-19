@@ -16,7 +16,7 @@
     "reporter_config_file": "base_reporter_config.json",
     "build_name": "Kurator-Assets-e2e",
     "parallels": 5,
-    "specs": "./cypress/e2e/e2e testing/Assets/*.cy.js",
+    "specs": "./cypress/e2e/e2e testing/SAM Builder/*.cy.js",
     "ignore_files": "",
     "feature_file_support": true,
     "network": true,
