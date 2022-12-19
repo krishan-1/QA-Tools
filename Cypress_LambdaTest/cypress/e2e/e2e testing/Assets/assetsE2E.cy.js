@@ -151,7 +151,6 @@ describe("Assets E2E Testing", function () {
             });
         });
     });
-
   it("validate download button", function () {
     cy.get("aside.q-drawer--right button").eq(2).click(); //Click on download button
     cy.get(".q-card").within(() => {
@@ -185,6 +184,31 @@ describe("Assets E2E Testing", function () {
         .should("eq", "Writing some description here.");
     });
     cy.contains("i", "close").click();
+  });
+
+  it("validate search functionality", function () {
+    cy.intercept("/currentuser/media/count?*").as("fetchCount");
+    cy.intercept("/currentuser/media?*").as("fetchAssets");
+    cy.get('input[placeholder="Find..."]')
+      .type(p)
+      .then(() => {
+        cy.wait("@fetchCount").then(() => {
+          cy.wait("@fetchAssets").then(() => {
+            cy.get(".q-table__grid-content > div")
+              .eq(0)
+              .within(() => {
+                cy.get(".ellipsis-2-lines")
+                  .invoke("text")
+                  .then((text) => {
+                    expect(text.trim()).to.include(p);
+                  });
+              });
+          });
+        });
+      });
+    cy.intercept("/currentuser/media?*").as("fetchAssetsAfterClear");
+    cy.get('input[placeholder="Find..."]').clear();
+    cy.wait("@fetchAssetsAfterClear");
   });
 
   it("validate create folder functinoality", function () {
@@ -235,7 +259,7 @@ describe("Assets E2E Testing", function () {
 
   it("validate duplicate functionality", function () {
     var beforeMoveLabelText;
-    cy.get(".q-table__grid-content > div ")
+    cy.get(".q-table__grid-content > div")
       .eq(0)
       .within(() => {
         cy.get(".ellipsis-2-lines")
@@ -250,6 +274,9 @@ describe("Assets E2E Testing", function () {
     cy.intercept("/user-medias").as("duplicate");
     cy.get(".q-dialog-plugin button").eq(1).click();
     cy.wait("@duplicate").then(() => {
+      cy.get(".q-table__bottom").within(() => {
+        cy.contains("i", "warning").should("exist");
+      });
       cy.wait("@fetchAssets").then(() => {
         cy.get(".q-table__grid-content > div")
           .eq(1)
