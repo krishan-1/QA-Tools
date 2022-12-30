@@ -14,7 +14,7 @@ Cypress.Commands.addAll({
     cy.get(".q-menu > .q-list >  :nth-child(3)").click();
   },
 
-  navigateToTestOrg(orgName) {
+  changeOrg(orgName) {
     cy.get(".q-header > .q-toolbar > .items-center > button").eq(1).click();
     cy.contains("Switch Organization").click();
     cy.contains(orgName).click();
