@@ -229,7 +229,8 @@ describe("SAM Builder E2E Testing", function ()
     {
       cy.get(`.q-tabs__content > div`).eq(2).click();
       const smartBlockName = 'iFrame SmartBlock';
-      cy.wait(1000).contains('div','Add Blocks').click();
+      // cy.wait(1000).contains('div','Add Blocks').click();
+      cy.contains('div','Add Blocks').click();
       cy.get('[aria-label="Find..."]').clear().type(smartBlockName);
       cy.get('.q-pa-sm > .cursor-pointer').within(()=>
       {
@@ -240,10 +241,12 @@ describe("SAM Builder E2E Testing", function ()
       })
       cy.get('.q-dialog__inner').within(()=>
       {
-        cy.contains('span','Add Blocks').click();
+        cy.contains('span','Add Blocks').click()
       })
       cy.intercept('/activations/*').as('dataSaved');
-      cy.wait(1000).get('.q-gutter-x-sm button').eq(3).click();
+      // cy.wait(1000).get('.q-gutter-x-sm button').eq(3).click();
+     cy.wait(1000)
+      cy.get('.q-gutter-x-sm button').eq(3).click();
       cy.wait('@dataSaved').then(()=>
         {
           cy.get('.q-my-md > div').within(()=>
